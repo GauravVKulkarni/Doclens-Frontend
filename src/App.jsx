@@ -1,17 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import ApplicationFormPreview from './pages/ApplicationFormPreview'
+// src/App.jsx
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ApplicationFormPreview from './pages/ApplicationFormPreview';
+import ApplicationInstructions from './pages/ApplicationInstructions';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <ApplicationFormPreview />
-    </>
-  )
+    <Router>
+      <Routes>
+        {/* Define the routes for different pages */}
+        <Route path="/" element={<ApplicationFormPreview />} />
+        <Route path="/application-form-preview" element={<ApplicationFormPreview />} />
+        <Route path="/application-instructions" element={<ApplicationInstructions />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
