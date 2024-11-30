@@ -2,7 +2,7 @@
 const Button = ({ label, onClick, className = '' }) => {
   return (
     <button
-      className={`bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 ${className}`}
+      className={`bg-custom-blue-2 text-white py-2 px-8 rounded-md hover:custom-blue-1 ${className}`}
       onClick={onClick}
     >
       {label}

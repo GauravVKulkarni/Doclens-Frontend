@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import BreadcrumbBar from '../components/BreadcrumbBar';
 import PageHeading from '../components/PageHeading';
 import LabelData from '../components/LabelData';
+import Banner from '../components/Banner';
 
 const ApplicationFormPreview = () => {
   const downloadPdf = () => {
@@ -15,14 +16,15 @@ const ApplicationFormPreview = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
       <NavBar />
-      <div className="container mx-auto px-6">
+      <Banner />
+      <BreadcrumbBar pageName="Scientist 'B' Application" />
+      <div className="container mx-auto px-6 pt-16">
         {/* Breadcrumb and Page Title */}
-        <BreadcrumbBar />
-        <PageHeading heading="Application Form Preview" />
+        <PageHeading heading="Scientist 'B' Application" />
 
         <div className="bg-white shadow-md rounded-lg p-6 mt-6 space-y-6">
           {/* Data Labels */}
-          <div className="space-y-4">
+          <div className="space-y-1">
             <LabelData label="Name" data="John Doe" />
             <LabelData label="Email" data="johndoe@example.com" />
             <LabelData label="Phone Number" data="+1 234 567 890" />
@@ -36,7 +38,7 @@ const ApplicationFormPreview = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex justify-between mt-6">
+          <div className="flex justify-between mt-6 ml-6">
             <Button label="Apply" onClick={downloadPdf} />
           </div>
         </div>
