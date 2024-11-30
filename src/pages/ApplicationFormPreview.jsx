@@ -14,7 +14,7 @@ const ApplicationFormPreview = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
+    <div className="min-h-screen bg-gray-50 pt-19">
       <NavBar />
       <Banner />
       <BreadcrumbBar pageName="Scientist 'B' Application" />

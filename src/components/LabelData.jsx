@@ -6,7 +6,7 @@ const LabelData = ({ label, data, isLink = false, link }) => {
       {isLink ? (
         <a
           href={link}
-          className="text-blue-600 hover:underline"
+          className="text-custom-blue-2 hover:underline"
           target="_blank"
           rel="noopener noreferrer"
         >
