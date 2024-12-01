@@ -36,7 +36,7 @@ const ApplicationInstructions = () => {
           {/* Action Buttons */}
           <div className="flex  justify-end mt-6 space-x-4">
             <Button label="Back" onClick={handleBack} className="bg-gray-600 hover:bg-gray-700" />
-            <Button label="Continue" onClick={handleDownload} />
+            <Button label="Continue" onClick={handleDownload} className="bg-custom-blue-2 hover:bg-custom-blue-1" />
           </div>
         </div>
       </div>
