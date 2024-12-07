@@ -16,7 +16,7 @@ const ApplicationFormPreview = () => {
   return (
     <div className="min-h-screen bg-gray-50 pt-19">
       <NavBar />
-      <Banner />
+      <Banner text = "Career"/>
       <BreadcrumbBar pageName="Scientist 'B' Application" />
       <div className="container mx-auto px-6 pt-16">
         {/* Breadcrumb and Page Title */}
