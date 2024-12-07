@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "title": "Scientist 'B'",
+      "publishDate": "16/12/2024",
+      "lastDate": "16/12/2024",
+      "applicantsCount": 300,
+      "status": "Open"
+    },
+    {
+      "id": 2,
+      "title": "Scientist 'C'",
+      "publishDate": "01/12/2024",
+      "lastDate": "16/12/2024",
+      "applicantsCount": 200,
+      "status": "Open"
+    }
+  ]
+  
