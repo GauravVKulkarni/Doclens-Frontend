@@ -1,5 +1,4 @@
-// components/NavBar.jsx
-import logo from '../assets/drdo_round_logo.jpg'; // Adjust path if needed
+import logo from '../assets/Logo/drdo_round_logo.jpg';
 
 const NavBar = () => {
   return (

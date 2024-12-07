@@ -1,4 +1,3 @@
-// components/LabelData.jsx
 const LabelData = ({ label, data, isLink = false, link }) => {
   return (
     <div className="text-gray-700 text-sm px-6 py-2">
