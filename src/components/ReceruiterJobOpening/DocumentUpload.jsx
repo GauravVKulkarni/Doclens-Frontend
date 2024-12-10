@@ -1,42 +1,43 @@
-// DocumentUpload.jsx
+// ApplicationFormSetup.jsx
 import React, { useState } from 'react';
 
-const DocumentUpload = ({ onChange, uploadedFiles }) => {
-  const [fileInput, setFileInput] = useState(null);
+const DocumentUpload = ({ docs, selectedDocs, onDocChange }) => {
+  const [customField, setCustomField] = useState({ label: '', type: '' });
+  const [customFieldsList, setCustomFieldsList] = useState([]);
 
-  const handleFileChange = (e) => {
-    const files = Array.from(e.target.files);
-    onChange(files);
-    setFileInput(files);
+  // Handle checkbox field changes
+  const handleDocChange = (doc) => {
+    onDocChange(doc);
   };
 
+  // Handle custom input field change
+  const handleCustomDocChange = (e) => {
+    const { name, value } = e.target;
+    setCustomDoc((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
   return (
-    <div className="space-y-4">
-      <h2 className="text-xl font-semibold">Step 3: Document Upload</h2>
-      <p className="text-sm text-gray-600">Upload your documents here (e.g., Resume, Cover Letter).</p>
+    <div className="space-y-6">
+      <h2 className="text-2xl font-semibold text-gray-800">Step 3: Documents to be Uploaded</h2>
 
-      <div className="space-y-2">
-        <input
-          type="file"
-          multiple
-          onChange={handleFileChange}
-          className="border p-2 rounded-md w-full"
-        />
-      </div>
-
-      {/* Display uploaded files */}
-      <div className="mt-4 space-y-2">
-        {uploadedFiles.length > 0 ? (
-          <ul>
-            {uploadedFiles.map((file, index) => (
-              <li key={index} className="text-sm text-gray-700">
-                {file.name}
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p className="text-sm text-gray-500">No files uploaded yet.</p>
-        )}
+      {/* Predefined Fields */}
+      <div className="space-y-4">
+        {docs.map((doc) => (
+          <div key={doc.name} className="flex items-center space-x-3">
+            <input
+              type="checkbox"
+              id={doc.name}
+              checked={selectedDocs.includes(doc.name)}
+              onChange={() => handleDocChange(doc.name)}
+              className="h-4 w-4 text-blue-500 border-gray-300 rounded"
+            />
+            <label htmlFor={doc.name} className="text-sm font-medium text-gray-700">
+              {doc.label}
+            </label>
+          </div>
+        ))}
       </div>
     </div>
   );

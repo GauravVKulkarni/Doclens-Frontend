@@ -8,6 +8,7 @@ const MainForm = () => {
   const [step, setStep] = useState(1); // Manage current step
   const [jobDetails, setJobDetails] = useState({ jobTitle: '', company: '' });
   const [selectedFields, setSelectedFields] = useState([]);
+  const [selectedDocs, setSelectedDocs] = useState([]);
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
   const fields = [
@@ -17,9 +18,21 @@ const MainForm = () => {
     { name: 'resume', label: 'Resume Upload' },
   ];
 
+  const docs = [
+    { name: 'adhaar', label: 'Adhaar Card' },
+    { name: 'pan', label: 'Pan Card' },
+    { name: 'resume', label: 'Resume Upload' },
+  ];
+
   const handleFieldChange = (field) => {
     setSelectedFields((prev) =>
       prev.includes(field) ? prev.filter((item) => item !== field) : [...prev, field]
+    );
+  };
+
+  const handleDocChange = (doc) => {
+    setSelectedDocs((prev) =>
+      prev.includes(doc) ? prev.filter((item) => item !== doc) : [...prev, doc]
     );
   };
 
@@ -56,8 +69,9 @@ const MainForm = () => {
       case 3:
         return (
           <DocumentUpload
-            onChange={handleFileUpload}
-            uploadedFiles={uploadedFiles}
+          docs={docs}
+          selectedDocs={selectedDocs}
+          onDocChange={handleDocChange}
           />
         );
       case 4:
