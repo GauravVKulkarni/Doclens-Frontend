@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import JobDetails from './JobDetails';
 import ApplicationFormSetup from './ApplicationFormSetup';
-import DocumentUpload from './DocumentUpload';
+// import DocumentUpload from './DocumentUpload';
 import Confirmation from './Confirmation';
+import DocUpload from './DocUpload';
 
 const MainForm = () => {
   const [step, setStep] = useState(1); // Manage current step
   const [jobDetails, setJobDetails] = useState({ jobTitle: '', company: '' });
   const [selectedFields, setSelectedFields] = useState([]);
+  const [selectedDocs, setSelectedDocs] = useState([]);
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
   const fields = [
@@ -17,9 +19,21 @@ const MainForm = () => {
     { name: 'resume', label: 'Resume Upload' },
   ];
 
+  const docs = [
+    { name: 'Adhaar', label: 'Adhaar Card' },
+    { name: 'pan', label: 'Pan Card' },
+    { name: 'resume', label: 'Resume' },
+  ];
+
   const handleFieldChange = (field) => {
     setSelectedFields((prev) =>
       prev.includes(field) ? prev.filter((item) => item !== field) : [...prev, field]
+    );
+  };
+
+  const handleDocChange = (doc) => {
+    setSelectedDocs((prev) =>
+      prev.includes(doc) ? prev.filter((item) => item !== doc) : [...prev, doc]
     );
   };
 
@@ -29,6 +43,7 @@ const MainForm = () => {
 
   const handleSubmit = () => {
     alert('Form submitted successfully!');
+    console.log()
   };
 
   // Functions to navigate between steps
@@ -53,11 +68,12 @@ const MainForm = () => {
             onFieldChange={handleFieldChange}
           />
         );
-      case 3:
+        case 3:
         return (
-          <DocumentUpload
-            onChange={handleFileUpload}
-            uploadedFiles={uploadedFiles}
+          <DocUpload
+            docs={docs}
+            selectedDocs={selectedDocs}
+            onDocChange={handleDocChange}
           />
         );
       case 4:
@@ -74,11 +90,13 @@ const MainForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-8">
+    <div className="max-w-4xl mx-auto p-8 mt-24">
       <h1 className="text-3xl font-semibold">Job Opening Creation</h1>
+      {/* Render current step */}
+      {renderStep()}
       {/* Step indicator and navigation */}
       <div className="my-4">
-        <div className="flex space-x-4">
+        <div className="flex justify-between px-4">
           <button
             className="bg-blue-500 text-white px-4 py-2 rounded-md"
             onClick={goToPreviousStep}
@@ -95,9 +113,6 @@ const MainForm = () => {
           </button>
         </div>
       </div>
-
-      {/* Render current step */}
-      {renderStep()}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 
 const JobDetails = ({ jobDetails, onChange }) => {
   return (
-    <div className="space-y-6">
+    <div className="bg-white shadow-md rounded-lg p-6 mt-6 space-y-6">
       <h2 className="text-2xl font-semibold text-gray-800">Step 1: Job Details</h2>
 
       {/* Job Title */}
