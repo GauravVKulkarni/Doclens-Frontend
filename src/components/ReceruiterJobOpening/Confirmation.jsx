@@ -3,7 +3,7 @@ import React from 'react';
 
 const Confirmation = ({ selectedFields, onSubmit, onBack }) => {
   return (
-    <div className="space-y-4">
+    <div className="bg-white shadow-md rounded-lg p-6 mt-6 mb-12 space-y-6">
       <h2 className="text-xl font-semibold">Step 4: Confirmation</h2>
       <p className="text-sm text-gray-600">Review your selections below:</p>
       <ul className="space-y-2">

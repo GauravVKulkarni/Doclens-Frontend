@@ -10,29 +10,11 @@ const ApplicationFormSetup = ({ fields, selectedFields, onFieldChange }) => {
     onFieldChange(field);
   };
 
-  // Handle custom input field change
-  const handleCustomFieldChange = (e) => {
-    const { name, value } = e.target;
-    setCustomField((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  // Add custom field to the list
-  const handleAddCustomField = () => {
-    if (customField.label && customField.type) {
-      setCustomFieldsList((prev) => [...prev, customField]);
-      setCustomField({ label: '', type: '' }); // Clear input after adding
-    }
-  };
-
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-semibold text-gray-800">Step 2: Application Form Setup</h2>
-
       {/* Predefined Fields */}
-      <div className="space-y-4">
+      <div className="bg-white shadow-md rounded-lg p-6 mt-6 space-y-6">
+      <h2 className="text-2xl font-semibold text-gray-800">Step 2: Application Form Setup</h2>
         {fields.map((field) => (
           <div key={field.name} className="flex items-center space-x-3">
             <input

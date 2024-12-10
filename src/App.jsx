@@ -11,11 +11,11 @@ import MainForm from './components/ReceruiterJobOpening/MainForm';
 function App() {
   return (
     <Router>
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         {/* Define the routes for different pages */}
-        <Route path="/" element={<ApplicationFormPreview />} />
-        <Route path="/application-form-preview" element={<ApplicationFormPreview />} />
+        <Route path="/" element={<AdminLoginPage />} />
+        <Route path="/AdminDashboard" element={<ApplicationFormPreview />} />
         <Route path="/application-instructions" element={<ApplicationInstructions />} />
         <Route path="/job-creation" element={<MainForm />} />
         <Route path="/admin-login" elememt={<AdminLoginPage />} />
