@@ -1,27 +1,23 @@
 import { useState } from "react";
 
 const LoginCard = ({ handleLogin }) => {
-  const [formData,setFormData] = useState({email:"",password:""})
-  const handleData = (e) =>{
-    const { name, value } = e.target; 
-    console.log(formData)
+  const [formData, setFormData] = useState({ email: "", password: "" });
+
+  const handleData = (e) => {
+    const { name, value } = e.target;
     setFormData({
-      ...formData, 
-      [name]: value, 
+      ...formData,
+      [name]: value,
     });
-  }
+  };
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-          Login
-        </h2>
-        <form onSubmit={()=>handleLogin(formData)} className="space-y-4">
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Login</h2>
+        <form onSubmit={() => handleLogin(formData)} className="space-y-4">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email
             </label>
             <input
@@ -35,10 +31,7 @@ const LoginCard = ({ handleLogin }) => {
             />
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
               Password
             </label>
             <input
@@ -58,6 +51,14 @@ const LoginCard = ({ handleLogin }) => {
             Login
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <span className="text-sm text-gray-600">
+            Don't have an account?{" "}
+            <a href="/signup" className="text-blue-500 hover:text-blue-700 font-medium">
+              Sign Up
+            </a>
+          </span>
+        </div>
       </div>
     </div>
   );

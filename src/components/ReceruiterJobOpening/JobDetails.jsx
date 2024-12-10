@@ -1,7 +1,15 @@
 // JobDetails.jsx
 import React from 'react';
 
-const JobDetails = ({ jobDetails, onChange }) => {
+const JobDetails = ({ jobDetails, onJobChange }) => {
+
+  const onChange = (e) => {
+    onJobChange({
+      ...JobDetails, [e.target.name]:e.target.value
+    });
+    console.log(jobDetails);
+  };
+
   return (
     <div className="bg-white shadow-md rounded-lg p-6 mt-6 space-y-6">
       <h2 className="text-2xl font-semibold text-gray-800">Step 1: Job Details</h2>
@@ -14,8 +22,9 @@ const JobDetails = ({ jobDetails, onChange }) => {
         <input
           type="text"
           id="jobTitle"
+          name="jobTitle"
           value={jobDetails.jobTitle}
-          onChange={(e) => onChange('jobTitle', e.target.value)}
+          onChange={onChange}
           className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
@@ -28,8 +37,9 @@ const JobDetails = ({ jobDetails, onChange }) => {
         <input
           type="date"
           id="lastDate"
+          name="lastDate"
           value={jobDetails.lastDate}
-          onChange={(e) => onChange('lastDate', e.target.value)}
+          onChange={onChange}
           className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         />
       </div>
@@ -41,8 +51,9 @@ const JobDetails = ({ jobDetails, onChange }) => {
         </label>
         <textarea
           id="jobDescription"
+          name="jobDescription"
           value={jobDetails.jobDescription}
-          onChange={(e) => onChange('jobDescription', e.target.value)}
+          onChange={onChange}
           rows="4"
           className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         />
@@ -55,8 +66,9 @@ const JobDetails = ({ jobDetails, onChange }) => {
         </label>
         <select
           id="payLevel"
+          name="payLevel"
           value={jobDetails.payLevel}
-          onChange={(e) => onChange('payLevel', e.target.value)}
+          onChange={onChange}
           className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
         >
           <option value="">Select Pay Level</option>
@@ -64,19 +76,6 @@ const JobDetails = ({ jobDetails, onChange }) => {
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-      </div>
-
-      {/* Job Advertisement Document */}
-      <div className="space-y-2">
-        <label htmlFor="jobDocument" className="block text-sm font-medium text-gray-700">
-          Job Advertisement Document
-        </label>
-        <input
-          type="file"
-          id="jobDocument"
-          onChange={(e) => onChange('jobDocument', e.target.files[0])}
-          className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-        />
       </div>
     </div>
   );
