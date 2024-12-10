@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import JobDetails from './JobDetails';
 import ApplicationFormSetup from './ApplicationFormSetup';
-// import DocumentUpload from './DocumentUpload';
+import DocumentUpload from './DocumentUpload';
 import Confirmation from './Confirmation';
 import DocUpload from './DocUpload';
 
@@ -10,13 +10,18 @@ const MainForm = () => {
   const [jobDetails, setJobDetails] = useState({ jobTitle: '', company: '' });
   const [selectedFields, setSelectedFields] = useState([]);
   const [selectedDocs, setSelectedDocs] = useState([]);
-  const [selectedDocs, setSelectedDocs] = useState([]);
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
   const fields = [
     { name: 'fullName', label: 'Full Name' },
     { name: 'email', label: 'Email Address' },
     { name: 'phone', label: 'Phone Number' },
+    { name: 'resume', label: 'Resume Upload' },
+  ];
+
+  const docs = [
+    { name: 'adhaar', label: 'Adhaar Card' },
+    { name: 'pan', label: 'Pan Card' },
     { name: 'resume', label: 'Resume Upload' },
   ];
 
@@ -66,8 +71,9 @@ const MainForm = () => {
         case 3:
         return (
           <DocumentUpload
-            onChange={handleFileUpload}
-            uploadedFiles={uploadedFiles}
+          docs={docs}
+          selectedDocs={selectedDocs}
+          onDocChange={handleDocChange}
           />
         );
       case 4:
