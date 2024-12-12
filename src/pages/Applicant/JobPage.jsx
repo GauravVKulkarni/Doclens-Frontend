@@ -1,13 +1,12 @@
 import React from 'react'
 import PageHeading from '../../components/PageHeading'
-import NumberedListItem from '../../components/numberedListItem'
 import LabelData from '../../components/LabelData'
 import Button from '../../components/Button'
 
 const JobPage = () => {
   return (
     <div className='px-24 mt-36'>
-        <PageHeading heading={'Scientist B'} />
+        <PageHeading heading={"Scientist 'B'"} />
         <div className="bg-white shadow-md rounded-lg p-6 mt-6 space-y-6">
           {/* Instructions List */}
           <div className="space-y-1 pl-2">
