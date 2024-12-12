@@ -8,9 +8,7 @@ const NavBar = () => {
         <div className="text-lg font-bold">DRDO Careers</div>
       </div>
       <div className="flex items-center space-x-6">
-        <button className="hover:underline">Home</button>
-        <button className="hover:underline">About</button>
-        <button className="hover:underline">Contact</button>
+        <button className="hover:underline">Logout</button>
       </div>
     </nav>
   );

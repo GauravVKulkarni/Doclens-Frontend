@@ -9,6 +9,9 @@ import NavBar from './components/NavBar';
 import MainForm from './components/ReceruiterJobOpening/MainForm';
 import SignupCard from './components/SignupCard';
 import JobOpeningsTable from './components/jobOpeningsTable';
+import LandingPage from './pages/Applicant/LandingPage';
+import JobPage from './pages/Applicant/JobPage';
+import ApplicationForm from './pages/Applicant/ApplicationProcess/ApplicationForm';
 
 function App() {
   return (
@@ -16,7 +19,16 @@ function App() {
       <NavBar />
       <Routes>
         {/* Define the routes for different pages */}
+
         <Route path="/" element={<AdminLoginPage />} />
+
+        {/* Applicant routes */}
+        <Route path="/apply" element={<ApplicantLoginPage />} />
+        <Route path="/LandingPage" element={<LandingPage />} />
+        <Route path="/JobPage" element={<JobPage />} />
+        <Route path="/ApplicationForm" element={<ApplicationForm />} />
+
+
         <Route path="/signup" element={<SignupCard />} />
         <Route path="/AdminDashboard" element={<ApplicationFormPreview />} />
         <Route path="/application-instructions" element={<ApplicationInstructions />} />
